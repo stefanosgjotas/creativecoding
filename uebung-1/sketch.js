@@ -1,5 +1,5 @@
 
-let scale=1.5;
+let scale=1.6;
 
 function setup() {
   createCanvas(700, 700);
