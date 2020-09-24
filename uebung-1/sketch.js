@@ -19,6 +19,7 @@ function draw() {
   arc(350, 350, 300*scale, 300*scale, 90, 135);
   arc(350, 350, 300*scale, 300*scale, 135, 180);
   arc(350, 350, 300*scale, 300*scale, 180, 225);
+  arc(350, 350, 300*scale, 300*scale, 225, 270);
   arc(350, 350, 300*scale, 300*scale, 270, 315);
   arc(400, 330, 300*scale, 300*scale, 315, 360);
 
