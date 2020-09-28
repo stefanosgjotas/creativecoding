@@ -1,7 +1,7 @@
 
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
@@ -9,16 +9,14 @@ function draw() {
 
 
   background(0);
-  stroke(255);
+  stroke(255, 250, 30);
+
   let x=10;
 
 
-  // line(x,0,x,height);
+  for (let x = 0; x <= width; x = x+50) {
 
-  for (let x = 0; x <= width; x = x+10) {
-
-  // x=x+10;
-  line(x,0,300,height);
+  line(x,0,windowWidth/2,windowHeight);
 
 
 }

@@ -19,20 +19,13 @@ function draw() {
   fill(0,0);
   ellipse(a,height/2,a,a);
 
-  // line(x,0,x,height);
-
-  for (let a = 0; a < width*2; a = a+abstand) {
-
-  // x=x+10;
+  for (let a = 0; a < mouseX; a = a+abstand) {
   ellipse(a,height/2,a,a);
-  //entweder oder
-  // ellipse(windowWidth, windowHeight,a,a);
-
 
 }
 
   fill (255, 255, 255);
-  rect(mouseX, mouseY, 40, 40, 40);
+  ellipse(mouseX, mouseY, 40, 40);
 
 
 }
