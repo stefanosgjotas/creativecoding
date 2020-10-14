@@ -1,23 +1,21 @@
-
-
 function setup() {
   createCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
 
-  let h=map(mouseX, 0, windowWidth, 0, 255);
-  let b=map(mouseX, 0, windowWidth, 255, 30);
-  let s=map(mouseX, 0, windowWidth, 0, 30);
+  let h = map(mouseX, 0, windowWidth, 0, 255);
+  let b = map(mouseX, 0, windowWidth, 255, 30);
+  let s = map(mouseX, 0, windowWidth, 0, 30);
 
 
   background(h, 0, 150);
   strokeWeight(s)
 
-  let x=10;
+  let x = 10;
 
 
-  for (let x = 0; x <= mouseX; x = x+60) {
+  for (let x = 0; x <= mouseX; x = x + 60) {
 
     line(x, 0, x, height);
     stroke(x, 255, 255, windowWidth);

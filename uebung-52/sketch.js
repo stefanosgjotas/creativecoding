@@ -1,132 +1,36 @@
 let angle = 0;
+let img;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  img = loadImage('assets/dolphin.png');
+  background(0);
+  noFill();
+  rectMode(CENTER);
+  stroke(255);
+  strokeWeight(3);
   angleMode(DEGREES);
-
-
 }
 
 function draw() {
 
+  let steps = 500;
+  background(250, 250, 250)
 
-  background(0, 0, 139, 10);
-
-  noFill();
-  stroke(255);
-  rectMode(CENTER); //mit diesem Befehl wird das Rechteck von der Mitte her gezeichnet statt von der oberen linken Ecke
-  push();
-  translate(width / 2, height / 2);
-  rotate(angle);
-  rect(0, 0, 400, 400);
-  pop();
-
-  fill(100, 210, 150);
-  noStroke();
-  push();
-  translate(width / 2, height / 2);
-  rotate(-angle);
-  ellipse(100, 0, 100, 100);
-  pop();
-
-  noFill();
-  stroke(255, 100, 150);
-  push();
-  translate(width / 2, height / 2);
-  rotate(-angle);
-  ellipse(350, 0, 100, 100);
-  pop();
-
-  noFill();
-  stroke(255, 10, 50);
-  push();
-  translate(width / 2, height / 2);
-  rotate(-angle);
-  ellipse(475, 0, 100, 100);
-  pop();
-
-  noFill();
-  stroke(150, 150, 105);
-  push();
-  translate(width / 2, height / 2);
-  rotate(-angle);
-  ellipse(600, 0, 100, 100);
-  pop();
+  for (let x = 50; x <= width; x += steps) {
 
 
-  noFill();
-  stroke(255);
-  rectMode(CENTER);
-  push();
-  translate(width, height);
-  rotate(angle);
-  rect(0, 0, 350, 350);
-  pop();
+    push(); //Koordinatensystem abspeichern
+    translate(x, height / 2); //in die Mitte des jeweiligen Elements schieben
+    rotate(angle);
+    point(0); //aktuelle Nullposition markieren
+    image(img, 0, 0);
+    pop();
 
-  fill(100, 210, 150);
-  noStroke();
-  push();
-  translate(width, height);
-  rotate(-angle);
-  ellipse(100, 0, 75, 75);
-  pop();
+    fill(30, 220, 250, 90)
+    noStroke();
+    rect(0, height, windowWidth * 3, windowHeight)
 
-
-  noFill();
-  stroke(255);
-  rectMode(CENTER);
-  push();
-  translate(0, 0);
-  rotate(angle);
-  rect(0, 0, 350, 350);
-  pop();
-
-  fill(100, 210, 150);
-  noStroke();
-  push();
-  translate(0, 0);
-  rotate(-angle);
-  ellipse(100, 0, 75, 75);
-  pop();
-
-
-  noFill();
-  stroke(255);
-  rectMode(CENTER);
-  push();
-  translate(0, height);
-  rotate(angle);
-  rect(0, 0, 350, 350);
-  pop();
-
-  fill(100, 210, 150);
-  noStroke();
-  push();
-  translate(0, height);
-  rotate(-angle);
-  ellipse(100, 0, 75, 75);
-  pop();
-
-
-  noFill();
-  stroke(255);
-  rectMode(CENTER);
-  push();
-  translate(width, 0);
-  rotate(angle);
-  rect(0, 0, 350, 350);
-  pop();
-
-  fill(100, 210, 150);
-  noStroke();
-  push();
-  translate(width, 0);
-  rotate(-angle);
-  ellipse(100, 0, 75, 75);
-  pop();
-
-
-
-
-  angle = angle + 1;
+    angle = angle + 0.3;
+  }
 }

@@ -1,4 +1,3 @@
-
 var gui;
 
 var anz = 10;
@@ -22,14 +21,14 @@ function draw() {
   let a = 6;
   let side = 100;
 
-  let abstand=100;
+  let abstand = 100;
   strokeWeight(1)
 
   for (let i = 1; i <= anz; i++) {
     strokeWeight(i);
-    fill(0,0);
-    a+=abstand;
-    ellipse(distanz * i,height/3,a,a);
+    fill(0, 0);
+    a += abstand;
+    ellipse(distanz * i, height / 3, a, a);
 
   }
 
