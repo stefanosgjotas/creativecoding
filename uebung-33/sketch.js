@@ -15,8 +15,8 @@ function draw() {
   background(h, 100, 150);
 
 
-  for (var x = -150; x <= width; x += stepsx) {
-    for (var y = -150; y <= height; y += stepsy) {
+  for (var x = -145; x <= width; x += stepsx) {
+    for (var y = -145; y <= height; y += stepsy) {
 
 
       beginShape();
