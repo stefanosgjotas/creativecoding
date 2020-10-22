@@ -2,8 +2,8 @@ let angle = 0;
 
 var gui;
 
-var anz = 10; // dieser Wert stammt noch aus einer anderen Übung
-var distanz = 25; // dieser Wert stammt noch aus einer anderen Übung
+var speed = 5;
+var direction = 4;
 
 
 function setup() {
@@ -13,26 +13,22 @@ function setup() {
 
   noFill();
   gui = createGui('p5.gui');
-  gui.addGlobals('anz', 'distanz');
+  gui.addGlobals('speed', 'direction');
 
 }
 
 function draw() {
-
-  let a = 6;
-  let side = 100;
-  let abstand = 150;
-
 
   let steps = 150;
   background(0, 50)
   noStroke();
   for (let x = 15; x <= width; x += steps) {
     for (let y = 20; y <= height; y += steps) {
+      for (let z = 0; z <= direction; z++) {
 
       push();
       translate(x, y);
-      rotate(angle);
+      rotate(direction);
       beginShape();
       vertex(0, 0);
       vertex(0, 30);
@@ -41,9 +37,8 @@ function draw() {
       pop();
     }
   }
+}
 
-  // let h = map(mouseX, 0, width, 0, 255);
-  // Für die Änderung der Hintergrundfarbe mit der Mausposition X
   background(0, 0, 155, 90);
 
   fill(100, 210, 150);
@@ -119,6 +114,8 @@ function draw() {
 
   pop();
 
-  angle = angle + 1;
+  for (let i = 1; i <= speed; i++) {
+    angle = angle + 0.1;
+  }
 
 }
