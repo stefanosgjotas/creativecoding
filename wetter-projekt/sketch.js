@@ -3,9 +3,7 @@ let angle = 0;
 let windstaerke = 0;
 let windrad = 0;
 let temperature = 0;
-let winddir = 0;
 let kompass = 0;
-let windspeed = 0;
 let input, button;
 
 var gui;
@@ -17,7 +15,7 @@ var temperature_color = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  let url = 'https://api.weatherstack.com/current?access_key='+key+'&query=Zürich';
+  let url = 'https://api.weatherstack.com/current?access_key=' + key + '&query=Zürich';
   loadJSON(url, gotWeather);
   angleMode(DEGREES);
   strokeCap(PROJECT);
