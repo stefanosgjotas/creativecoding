@@ -3,7 +3,6 @@ let angle = 0;
 let windstaerke = 0;
 let windrad = 0;
 let temperature = 0;
-let richtung = 0;
 let winddir = 0;
 let kompass = 0;
 let windspeed = 0;
@@ -13,6 +12,7 @@ var gui;
 
 var wind_speed = 0;
 var wind_direction = 0;
+var temperature_color = 0;
 
 
 function setup() {
@@ -26,7 +26,7 @@ function setup() {
   sliderRange(0, 360);
   gui.addGlobals('wind_direction');
   sliderRange(0, 40);
-  gui.addGlobals('wind_speed');
+  gui.addGlobals('wind_speed', 'temperature_color');
 
   input = createInput();
   input.position(windowWidth - 420, windowHeight - 100);
@@ -38,12 +38,10 @@ function setup() {
 
 function draw() {
 
-  let c1 = lerpColor(color('#1c4794'), color('#951c1c'), map(temperature, 0, 40, 0, 1));
+  let c1 = lerpColor(color('#1c4794'), color('#951c1c'), map(temperature, 0, 40, 0, 1)); // Reserve Farben
   let c2 = lerpColor(color('#77ff94'), color('#77fdff'), map(wind_direction, 0, 360, 0, 1));
-  let c3 = lerpColor(color('#1c4794'), color('#951c1c'), map(temperature, 0, 20, 0, 1));
+  let c3 = lerpColor(color('#1c4794'), color('#951c1c'), map(temperature_color, 0, 30, 0, 1));
   let c4 = color(248, 179, 45);
-  let c5 = lerpColor(color('#77ff94'), color('#77fdff'), map(richtung, 0, 360, 0, 1));
-
 
   background(21, 21, 21);
 
@@ -54,10 +52,8 @@ function draw() {
 
       push();
       scale(0.5, 0.5);
-      fill(richtung);
       fill(c2);
       translate(x, y);
-      rotate(richtung);
       rotate(wind_direction);
       beginShape();
       vertex(0, -20);
@@ -176,7 +172,7 @@ function draw() {
   noFill();
   stroke(255);
   strokeWeight(1);
-  text(temperature, windowWidth - 420, 630) & text('C°', windowWidth - 370, 630);
+  text(temperature_color, windowWidth - 420, 630) & text('C°', windowWidth - 370, 630);
   text(kompass, windowWidth - 420, 680);
   text(windstaerke, windowWidth - 420, 730) & text('h/km', windowWidth - 370, 730);
   noStroke();
@@ -188,14 +184,17 @@ function gotWeather(weather) {
   windrad = map(windstaerke, 0, 200, 0, 20); // in Rotationsgrad mappen. Bei 200stdkm dreht sich das Windrad nun 20 Grad weiter pro Frame
   console.log(windstaerke)
 
-  richtung = weather.current.wind_degree;
-  console.log(richtung)
+  wind_direction = weather.current.wind_degree;
+  console.log(wind_direction)
 
   kompass = weather.current.wind_dir;
   console.log(kompass)
 
   name = weather.location.name;
   console.log(name)
+
+  temperature_color = weather.current.temperature; // Angaben in Grad!
+  console.log(temperature)
 
   temperature = weather.current.temperature; // Angaben in Grad!
   console.log(temperature)
