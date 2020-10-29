@@ -17,7 +17,7 @@ var wind_direction = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  let url = 'https://api.weatherstack.com/current?access_key=06e280b15621fb57f14de8e91c05e79e&query=Zürich';
+  let url = 'https://api.weatherstack.com/current?access_key='+key+'&query=Zürich';
   loadJSON(url, gotWeather);
   angleMode(DEGREES);
   strokeCap(PROJECT);
@@ -39,9 +39,11 @@ function setup() {
 function draw() {
 
   let c1 = lerpColor(color('#1c4794'), color('#951c1c'), map(temperature, 0, 40, 0, 1));
-  let c2 = lerpColor(color('#77ff94'), color('#77fdff'), map(richtung, 0, 360, 0, 1));
+  let c2 = lerpColor(color('#77ff94'), color('#77fdff'), map(wind_direction, 0, 360, 0, 1));
   let c3 = lerpColor(color('#1c4794'), color('#951c1c'), map(temperature, 0, 20, 0, 1));
   let c4 = color(248, 179, 45);
+  let c5 = lerpColor(color('#77ff94'), color('#77fdff'), map(richtung, 0, 360, 0, 1));
+
 
   background(21, 21, 21);
 
@@ -52,6 +54,7 @@ function draw() {
 
       push();
       scale(0.5, 0.5);
+      fill(richtung);
       fill(c2);
       translate(x, y);
       rotate(richtung);
