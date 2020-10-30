@@ -173,13 +173,14 @@ function draw() {
   text(temperature_color, windowWidth - 420, 630) & text('C°', windowWidth - 370, 630);
   text(kompass, windowWidth - 420, 680);
   text(windstaerke, windowWidth - 420, 730) & text('h/km', windowWidth - 370, 730);
+  // text(windstaerke + 'h/km', windowWidth - 420, 730); // Alternative Schreibweise
   noStroke();
 
 }
 
 function gotWeather(weather) {
   windstaerke = weather.current.wind_speed; // Angaben in km!
-  windrad = map(windstaerke, 0, 200, 0, 20); // in Rotationsgrad mappen. Bei 200stdkm dreht sich das Windrad nun 20 Grad weiter pro Frame
+  windrad = map(windstaerke, 0, 200, 0, 20); // in Rotationsgrad mappen. Bei 200stdkm dreht sich das Windrad nun 0.1 Grad weiter pro Frame
   console.log(windstaerke)
 
   wind_direction = weather.current.wind_degree;
@@ -192,9 +193,6 @@ function gotWeather(weather) {
   console.log(name)
 
   temperature_color = weather.current.temperature; // Angaben in Grad!
-  console.log(temperature)
-
-  temperature = weather.current.temperature; // Angaben in Grad!
   console.log(temperature)
 
 }
